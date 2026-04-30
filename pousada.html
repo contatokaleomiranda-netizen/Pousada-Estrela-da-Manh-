@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pousada Estrela da Manhã — Seu refúgio de paz e conforto em meio à natureza. Reserve diretamente pelo WhatsApp com as melhores condições.">
+    <meta name="theme-color" content="#F5F0EB">
+    <title>Pousada Estrela da Manhã | Refúgio de Conforto e Natureza</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bege: #F5F0EB;
+            --bege-escuro: #E8DFD5;
+            --branco: #FFFFFF;
+            --verde-natureza: #5B7B63;
+            --verde-suave: #7A9A82;
+            --verde-claro: #E8F0EA;
+            --azul-claro: #C5D5E4;
+            --azul-suave: #E3ECF4;
+            --texto-escuro: #2C2C2C;
+            --texto-medio: #5A5A5A;
+            --texto-claro: #7A7A7A;
+            --dourado: #C9A96E;
+            --dourado-claro: #E8D5B0;
+            --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --sombra-media: 0 8px 40px rgba(0, 0, 0, 0.10);
+            --sombra-card: 0 2px 12px rgba(0, 0, 0, 0.05);
+            --borda-suave: 1px solid rgba(0, 0, 0, 0.06);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-lento: 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--branco);
+            color: var(--texto-escuro);
+            line-height: 1.7;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        /* ========== TIPOGRAFIA ========== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: var(--texto-escuro);
+            margin-bottom: 0.5rem;
+        }
+        .subtitulo-secao {
+            font-size: 1.05rem;
+            color: var(--texto-claro);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        /* ========== HEADER / NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+            padding: 0.65rem 2rem;
+        }
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: var(--transition);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+        }
+        .navbar.scrolled .logo {
+            color: var(--texto-escuro);
+            text-shadow: none;
+            font-size: 1.35rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.01em;
+        }
+        .navbar.scrolled .nav-links a {
+            color: var(--texto-medio);
+            text-shadow: none;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dourado);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--dourado);
+        }
+        .navbar.scrolled .nav-links a:hover {
+            color: var(--verde-natureza);
+        }
+        .btn-whatsapp-nav {
+            background: #25D366;
+            color: #fff !important;
+            padding: 0.55rem 1.3rem;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            text-shadow: none !important;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem !important;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+            white-space: nowrap;
+        }
+        .btn-whatsapp-nav:hover {
+            background: #1ebe5b;
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .btn-whatsapp-nav::after {
+            display: none !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 6px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 3px;
+            transition: var(--transition);
+            display: block;
+        }
+        .navbar.scrolled .hamburger span {
+            background: var(--texto-escuro);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #3a3a3a;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.48) saturate(0.9);
+            transform: scale(1.05);
+            animation: heroZoomOut 20s ease-out forwards;
+        }
+        @keyframes heroZoomOut {
+            from {
+                transform: scale(1.18);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(30, 30, 28, 0.55) 0%,
+                    rgba(20, 20, 18, 0.35) 40%,
+                    rgba(20, 20, 18, 0.55) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            padding: 2rem;
+            color: #fff;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-content .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        .hero-content .hero-sub {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1rem 2.4rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            letter-spacing: 0.01em;
+        }
+        .btn-hero:hover {
+            background: #1ebe5b;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 38px rgba(37, 211, 102, 0.5);
+        }
+        .btn-hero .whatsapp-icon {
+            width: 22px;
+            height: 22px;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2.2s infinite;
+            cursor: pointer;
+        }
+        .scroll-indicator svg {
+            width: 32px;
+            height: 32px;
+            stroke: #fff;
+            opacity: 0.75;
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(14px);
+            }
+        }
+
+        /* ========== SEÇÕES GERAIS ========== */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .container-narrow {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .bg-bege {
+            background-color: var(--bege);
+        }
+        .bg-verde-claro {
+            background-color: var(--verde-claro);
+        }
+
+        /* ========== SOBRE ========== */
+        #sobre .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        #sobre .sobre-imagem {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            aspect-ratio: 4/3;
+        }
+        #sobre .sobre-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-lento);
+        }
+        #sobre .sobre-imagem:hover img {
+            transform: scale(1.04);
+        }
+        #sobre .sobre-texto h2 {
+            margin-bottom: 1.2rem;
+        }
+        #sobre .sobre-texto p {
+            color: var(--texto-medio);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        #sobre .destaque-box {
+            display: inline-block;
+            background: var(--verde-claro);
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--verde-natureza);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ========== QUARTOS ========== */
+        #quartos .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card-quarto {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            transition: var(--transition);
+            border: var(--borda-suave);
+        }
+        .card-quarto:hover {
+            box-shadow: var(--sombra-media);
+            transform: translateY(-6px);
+        }
+        .card-quarto .card-img {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+        .card-quarto .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-lento);
+        }
+        .card-quarto:hover .card-img img {
+            transform: scale(1.06);
+        }
+        .card-quarto .card-body {
+            padding: 1.5rem;
+        }
+        .card-quarto .card-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: var(--texto-escuro);
+        }
+        .card-quarto .card-body .card-tipo {
+            font-size: 0.85rem;
+            color: var(--verde-natureza);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .card-quarto .card-body p {
+            color: var(--texto-medio);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .card-quarto .card-body .card-detalhes {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--texto-claro);
+            flex-wrap: wrap;
+        }
+        .card-quarto .card-body .card-detalhes span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ========== DIFERENCIAIS ========== */
+        #diferenciais .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .diff-item {
+            padding: 2rem 1.5rem;
+            background: #fff;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            border: var(--borda-suave);
+            box-shadow: var(--sombra-card);
+        }
+        .diff-item:hover {
+            box-shadow: var(--sombra-media);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+        .diff-item .diff-icone {
+            font-size: 2.4rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .diff-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .diff-item p {
+            font-size: 0.9rem;
+            color: var(--texto-claro);
+        }
+
+        /* ========== GALERIA ========== */
+        #galeria .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 250px 200px 250px;
+            gap: 0.8rem;
+        }
+        #galeria .galeria-grid .gal-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--sombra-card);
+        }
+        #galeria .galeria-grid .gal-item:hover {
+            box-shadow: var(--sombra-media);
+            transform: scale(1.02);
+        }
+        #galeria .galeria-grid .gal-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-lento);
+        }
+        #galeria .galeria-grid .gal-item:hover img {
+            transform: scale(1.08);
+        }
+        #galeria .gal-item:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+        #galeria .gal-item:nth-child(2) {
+            grid-column: 3 / 5;
+            grid-row: 1 / 3;
+        }
+        #galeria .gal-item:nth-child(3) {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+        #galeria .gal-item:nth-child(4) {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+        #galeria .gal-item:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+        #galeria .gal-item:nth-child(6) {
+            grid-column: 4 / 5;
+            grid-row: 3 / 4;
+        }
+        #galeria .gal-item:nth-child(7) {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        /* ========== LOCALIZAÇÃO ========== */
+        #localizacao .loc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        #localizacao .mapa-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            aspect-ratio: 4/3;
+            border: var(--borda-suave);
+        }
+        #localizacao .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #localizacao .loc-info h2 {
+            margin-bottom: 1rem;
+        }
+        #localizacao .loc-info p {
+            color: var(--texto-medio);
+            margin-bottom: 0.8rem;
+            font-size: 1.02rem;
+        }
+        #localizacao .loc-info .loc-destaque {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--verde-claro);
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            color: var(--verde-natureza);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            width: fit-content;
+        }
+
+        /* ========== DEPOIMENTOS ========== */
+        #depoimentos .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .depoimento-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--sombra-card);
+            border: var(--borda-suave);
+            transition: var(--transition);
+            position: relative;
+        }
+        .depoimento-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--dourado-claro);
+            position: absolute;
+            top: 0.5rem;
+            left: 1.2rem;
+            line-height: 1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .depoimento-card:hover {
+            box-shadow: var(--sombra-media);
+            transform: translateY(-3px);
+        }
+        .depoimento-card .depo-texto {
+            color: var(--texto-medio);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        .depoimento-card .depo-autor {
+            font-weight: 600;
+            color: var(--texto-escuro);
+            font-size: 0.95rem;
+        }
+        .depoimento-card .depo-autor span {
+            display: block;
+            font-weight: 400;
+            color: var(--texto-claro);
+            font-size: 0.8rem;
+        }
+        .depoimento-card .estrelas {
+            color: #F0C040;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== CTA FINAL ========== */
+        #cta-final {
+            background: var(--verde-natureza);
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        #cta-final::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        #cta-final::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        #cta-final h2 {
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            position: relative;
+            z-index: 1;
+        }
+        #cta-final p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #cta-final .btn-cta-grande {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: #fff;
+            color: var(--verde-natureza);
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.01em;
+        }
+        #cta-final .btn-cta-grande:hover {
+            background: #f0f0f0;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+        }
+        #cta-final .btn-cta-grande .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ========== RODAPÉ ========== */
+        footer {
+            background: #2C2C2C;
+            color: #ccc;
+            padding: 3rem 2rem 1.5rem;
+        }
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            max-width: 1150px;
+            margin: 0 auto 2rem;
+        }
+        footer h4 {
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        footer p,
+        footer a {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            line-height: 1.8;
+        }
+        footer a:hover {
+            color: var(--dourado);
+        }
+        footer .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        footer .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        footer .social-links a:hover {
+            background: var(--dourado);
+            color: #fff;
+        }
+        footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #888;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* ========== BOTÃO FLUTUANTE WHATSAPP ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+            transition: var(--transition);
+            animation: pulseFloat 2.4s infinite;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            background: #1ebe5b;
+            transform: scale(1.1);
+            box-shadow: 0 14px 38px rgba(37, 211, 102, 0.55);
+            animation: none;
+        }
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+        @keyframes pulseFloat {
+            0%,
+            100% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+            }
+            50% {
+                box-shadow: 0 8px 45px rgba(37, 211, 102, 0.7), 0 0 0 16px rgba(37, 211, 102, 0.08);
+            }
+        }
+
+        /* ========== ANIMAÇÕES AO SCROLL ========== */
+        .animar {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+        }
+        .animar.visivel {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animar-esquerda {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+        }
+        .animar-esquerda.visivel {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .animar-direita {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+        }
+        .animar-direita.visivel {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ========== RESPONSIVO ========== */
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 380px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+                z-index: 999;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                color: var(--texto-escuro) !important;
+                text-shadow: none !important;
+                font-size: 1.05rem !important;
+            }
+            .btn-whatsapp-nav {
+                justify-content: center;
+                text-align: center;
+                background: #25D366 !important;
+                color: #fff !important;
+                margin-top: 0.5rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            #sobre .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            #sobre .sobre-imagem {
+                order: -1;
+                aspect-ratio: 16/10;
+            }
+            #localizacao .loc-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            #galeria .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                gap: 0.6rem;
+            }
+            #galeria .galeria-grid .gal-item {
+                grid-column: auto !important;
+                grid-row: auto !important;
+                aspect-ratio: 4/3;
+            }
+            #galeria .gal-item:nth-child(1) {
+                grid-column: 1 / 3 !important;
+                aspect-ratio: 16/9;
+            }
+            .hero-content h1 {
+                font-size: clamp(1.8rem, 6vw, 2.6rem);
+            }
+            .hero-content .hero-sub {
+                font-size: 1rem;
+            }
+            section {
+                padding: 3.5rem 1.2rem;
+            }
+            .whatsapp-float {
+                bottom: 18px;
+                right: 18px;
+                width: 52px;
+                height: 52px;
+            }
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+        @media (max-width: 500px) {
+            .cards-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .depoimentos-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .diff-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1rem !important;
+            }
+            .diff-item {
+                padding: 1.2rem 0.8rem !important;
+            }
+            .diff-item .diff-icone {
+                font-size: 1.8rem !important;
+            }
+            .diff-item h4 {
+                font-size: 0.9rem !important;
+            }
+            .diff-item p {
+                font-size: 0.78rem !important;
+            }
+            .btn-hero {
+                padding: 0.85rem 1.8rem;
+                font-size: 1rem;
+            }
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .navbar.scrolled {
+                padding: 0.55rem 1rem;
+            }
+            .navbar .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">Estrela da Manhã</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#sobre" onclick="closeMenu()">A Pousada</a></li>
+            <li><a href="#quartos" onclick="closeMenu()">Quartos</a></li>
+            <li><a href="#diferenciais" onclick="closeMenu()">Diferenciais</a></li>
+            <li><a href="#galeria" onclick="closeMenu()">Galeria</a></li>
+            <li><a href="#depoimentos" onclick="closeMenu()">Avaliações</a></li>
+            <li><a href="#localizacao" onclick="closeMenu()">Localização</a></li>
+            <li>
+                <a href="https://wa.me/5512999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva+na+Pousada+Estrela+da+Manh%C3%A3."
+                    class="btn-whatsapp-nav" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                    Reservar Agora
+                </a>
+            </li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80"
+            alt="Pousada Estrela da Manhã - Vista externa com piscina e natureza"
+            loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="tag">Bem-vindo ao seu refúgio</span>
+            <h1>Seu refúgio perfeito para descansar e aproveitar</h1>
+            <p class="hero-sub">Conforto, natureza e hospitalidade autêntica a poucos minutos das montanhas. Viva a experiência de uma estadia que renova a alma.</p>
+            <a href="https://wa.me/5512999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva+na+Pousada+Estrela+da+Manh%C3%A3."
+            class="btn-hero" target="_blank" rel="noopener">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Reservar pelo WhatsApp
+        </a>
+    </div>
+    <div class="scroll-indicator" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </div>
+</section>
+
+<!-- ==================== SOBRE ==================== -->
+<section id="sobre">
+    <div class="container sobre-grid">
+        <div class="sobre-imagem animar-esquerda">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80"
+            alt="Quarto aconchegante da Pousada Estrela da Manhã"
+            loading="lazy">
+        </div>
+        <div class="sobre-texto animar-direita">
+            <span class="destaque-box">Desde 2012</span>
+            <h2>Um lar longe de casa, no coração da natureza</h2>
+            <p>A <strong>Pousada Estrela da Manhã</strong> nasceu do desejo de criar um espaço onde cada hóspede se sinta acolhido, respeitado e renovado. Aqui, o silêncio da manhã é embalado pelo canto dos pássaros, e o perfume da mata entra pela janela.</p>
+            <p>Cada detalhe foi pensado para oferecer <strong>conforto genuíno</strong> — da roupa de cama em algodão egípcio ao café da manhã artesanal preparado com carinho. Seja para um fim de semana romântico ou para uma pausa merecida da rotina, sua estadia será inesquecível.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== QUARTOS ==================== -->
+<section id="quartos" class="bg-bege">
+    <div class="container">
+        <div class="container-narrow animar">
+            <h2>Acomodações que abraçam você</h2>
+            <p class="subtitulo-secao">Escolha o quarto ideal para sua estadia. Todos decorados com bom gosto e equipados para seu máximo conforto.</p>
+        </div>
+        <div class="cards-grid">
+            <!-- Quarto 1 -->
+            <div class="card-quarto animar">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&q=80" alt="Suíte Master Premium" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-tipo">Suíte</span>
+                    <h3>Suíte Master Premium</h3>
+                    <p>Ampla suíte com cama king-size, varanda privativa com vista para a montanha e banheira de hidromassagem. Ideal para casais.</p>
+                    <div class="card-detalhes">
+                        <span>🛏️ King-size</span><span>🛁 Hidromassagem</span><span>🌄 Vista montanha</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Quarto 2 -->
+            <div class="card-quarto animar">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600&q=80" alt="Quarto Standard Aconchego" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-tipo">Standard</span>
+                    <h3>Quarto Aconchego</h3>
+                    <p>Quarto confortável com cama queen, decoração suave e iluminação natural. Perfeito para quem busca simplicidade com elegância.</p>
+                    <div class="card-detalhes">
+                        <span>🛏️ Queen</span><span>☀️ Iluminação natural</span><span>🌿 Vista jardim</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Quarto 3 -->
+            <div class="card-quarto animar">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Suíte Família" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-tipo">Família</span>
+                    <h3>Suíte Família</h3>
+                    <p>Espaço generoso com cama queen e duas camas de solteiro, sala integrada e varanda. Conforto para toda a família.</p>
+                    <div class="card-detalhes">
+                        <span>🛏️ Queen + 2</span><span>👨‍👩‍👧‍👦 Até 4 pessoas</span><span>🛋️ Sala integrada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DIFERENCIAIS ==================== -->
+<section id="diferenciais">
+    <div class="container">
+        <div class="container-narrow animar">
+            <h2>Pequenos detalhes, grandes momentos</h2>
+            <p class="subtitulo-secao">Tudo o que você precisa para uma estadia tranquila e prazerosa está aqui.</p>
+        </div>
+        <div class="diff-grid">
+            <div class="diff-item animar">
+                <span class="diff-icone">📶</span>
+                <h4>Wi-Fi Premium</h4>
+                <p>Internet rápida e estável em todas as áreas da pousada.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">☕</span>
+                <h4>Café da Manhã Artesanal</h4>
+                <p>Delícias caseiras, frutas frescas e pães especiais todos os dias.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">🏊</span>
+                <h4>Piscina Aquecida</h4>
+                <p>Piscina com água aquecida e borda infinita com vista para a serra.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">🚗</span>
+                <h4>Estacionamento</h4>
+                <p>Amplo estacionamento coberto e seguro para todos os hóspedes.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">📍</span>
+                <h4>Localização Privilegiada</h4>
+                <p>A apenas 5 minutos do centro e com acesso fácil às trilhas.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">🐾</span>
+                <h4>Pet Friendly</h4>
+                <p>Seu pet é bem-vindo! Temos espaço e carinho para ele também.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">🧖</span>
+                <h4>Espaço Wellness</h4>
+                <p>Sauna seca e área de massagem para relaxamento completo.</p>
+            </div>
+            <div class="diff-item animar">
+                <span class="diff-icone">🔒</span>
+                <h4>Recepção 24h</h4>
+                <p>Equipe atenciosa disponível a qualquer hora para ajudar você.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GALERIA ==================== -->
+<section id="galeria" class="bg-verde-claro">
+    <div class="container">
+        <div class="container-narrow animar">
+            <h2>Inspire-se pelas imagens</h2>
+            <p class="subtitulo-secao">Cada canto da pousada foi criado para encantar. Veja um pouco do que espera por você.</p>
+        </div>
+        <div class="galeria-grid animar">
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Piscina da pousada" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Vista da montanha" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80" alt="Café da manhã" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80" alt="Área de descanso" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Jardim da pousada" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" alt="Quarto iluminado" loading="lazy">
+            </div>
+            <div class="gal-item">
+                <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=800&q=80" alt="Lareira aconchegante" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LOCALIZAÇÃO ==================== -->
+<section id="localizacao">
+    <div class="container loc-grid">
+        <div class="mapa-container animar-esquerda">
+            <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-45.60%2C-22.74%2C-45.57%2C-22.71&layer=mapnik&marker=-22.725%2C-45.585"
+            title="Mapa da localização da Pousada Estrela da Manhã"
+        loading="lazy"></iframe>
+    </div>
+    <div class="loc-info animar-direita">
+        <h2>Onde a natureza encontra o conforto</h2>
+        <p>Estamos localizados em uma região privilegiada da serra, a apenas <strong>5 minutos do centro</strong> e com acesso facilitado às principais trilhas e pontos turísticos.</p>
+        <p>O ar puro da montanha e a paz do entorno fazem da nossa localização o equilíbrio perfeito entre <strong>isolamento tranquilo e conveniência</strong>.</p>
+        <div class="loc-destaque">
+            📍 Estrada das Montanhas, km 4,5 — Serra da Mantiqueira
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ==================== DEPOIMENTOS ==================== -->
+<section id="depoimentos" class="bg-bege">
+    <div class="container">
+        <div class="container-narrow animar">
+            <h2>Quem veio, se encantou</h2>
+            <p class="subtitulo-secao">A experiência dos nossos hóspedes é a nossa maior recompensa.</p>
+        </div>
+        <div class="depoimentos-grid">
+            <div class="depoimento-card animar">
+                <div class="estrelas">★★★★★</div>
+                <p class="depo-texto">"Foi a melhor experiência de hospedagem que já tive. O café da manhã é impecável, a vista do quarto nos deixou sem palavras e o atendimento foi extremamente caloroso. Voltaremos com certeza!"</p>
+                <p class="depo-autor">Marina e Ricardo<span>Hóspedes — São Paulo, SP</span></p>
+            </div>
+            <div class="depoimento-card animar">
+                <div class="estrelas">★★★★★</div>
+                <p class="depo-texto">"A pousada é um verdadeiro santuário. Acordar com o som dos pássaros, tomar um banho de piscina olhando a serra... tudo é pensado nos mínimos detalhes. Recomendo de olhos fechados."</p>
+                <p class="depo-autor">Camila Andrade<span>Hóspede — Rio de Janeiro, RJ</span></p>
+            </div>
+            <div class="depoimento-card animar">
+                <div class="estrelas">★★★★★</div>
+                <p class="depo-texto">"Levei minha família e todos adoraram. O quarto família é super espaçoso, as crianças aproveitaram a piscina e nós, o sossego. Saímos renovados. Atendimento nota 10!"</p>
+                <p class="depo-autor">Felipe Nogueira<span>Hóspede — Belo Horizonte, MG</span></p>
+            </div>
+            <div class="depoimento-card animar">
+                <div class="estrelas">★★★★★</div>
+                <p class="depo-texto">"Viajamos com nosso cachorrinho e fomos recebidos com tanto carinho que até ele não queria ir embora. A pousada é pet friendly de verdade, com espaço e cuidado. Um achado!"</p>
+                <p class="depo-autor">Ana Júlia e Leo<span>Hóspedes — Curitiba, PR</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section id="cta-final">
+    <h2 class="animar">Pronto para viver momentos inesquecíveis?</h2>
+    <p class="animar">Reserve agora mesmo pelo WhatsApp e garanta sua estadia com as melhores condições. É rápido, seguro e direto.</p>
+    <a href="https://wa.me/5512999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva+na+Pousada+Estrela+da+Manh%C3%A3."
+    class="btn-cta-grande animar" target="_blank" rel="noopener">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    Quero Reservar Agora
+</a>
+</section>
+
+<!-- ==================== RODAPÉ ==================== -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h4>Pousada Estrela da Manhã</h4>
+            <p>Seu refúgio de paz e conforto na Serra da Mantiqueira. Experiências que aquecem o coração desde 2012.</p>
+        </div>
+        <div>
+            <h4>Contato</h4>
+            <p>📞 <a href="https://wa.me/5512999999999" target="_blank" rel="noopener">(12) 99999-9999</a></p>
+            <p>✉️ <a href="mailto:contato@estreladamanha.com.br">contato@estreladamanha.com.br</a></p>
+            <p>📍 Estrada das Montanhas, km 4,5 — Serra da Mantiqueira</p>
+        </div>
+        <div>
+            <h4>Links Rápidos</h4>
+            <p><a href="#sobre">A Pousada</a></p>
+            <p><a href="#quartos">Quartos</a></p>
+            <p><a href="#galeria">Galeria</a></p>
+            <p><a href="#localizacao">Localização</a></p>
+        </div>
+        <div>
+            <h4>Redes Sociais</h4>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+                <a href="#" aria-label="Facebook" title="Facebook">📘</a>
+                <a href="#" aria-label="TikTok" title="TikTok">🎵</a>
+                <a href="#" aria-label="YouTube" title="YouTube">▶️</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Pousada Estrela da Manhã. Todos os direitos reservados. Feito com ❤️ para receber você.</p>
+    </div>
+</footer>
+
+<!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+<a href="https://wa.me/5512999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva+na+Pousada+Estrela+da+Manh%C3%A3."
+class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp" title="Reservar pelo WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+    (function() {
+        // Elementos
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        // Sticky navbar no scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Menu mobile toggle
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Animação do hamburger
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // Fechar menu ao clicar em link (função global)
+        window.closeMenu = function() {
+            navLinks.classList.remove('active');
+            const spans = hamburger.querySelectorAll('span');
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        };
+
+        // Intersection Observer para animações ao scroll
+        const elementosAnimados = document.querySelectorAll('.animar, .animar-esquerda, .animar-direita');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visivel');
+                    // Opcional: parar de observar após animar
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        elementosAnimados.forEach(el => observer.observe(el));
+
+        // Disparar animação inicial para elementos já visíveis
+        setTimeout(() => {
+            elementosAnimados.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visivel');
+                }
+            });
+        }, 200);
+
+        // Smooth scroll para links internos (fallback para navegadores mais antigos)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Fechar menu mobile se aberto
+                    closeMenu();
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
